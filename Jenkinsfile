@@ -57,49 +57,37 @@
 
 
 
-
-pipeline{
+pipeline {
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
-    stages{
-        stage('Terraform Init')
-        {
-            step
-            {
-            dir('terraform')
-            {
-                sh 'terraform init'
-            }
-            
-            }
-        }
-        
-        stage('Terraform Plan')
-        {
-            step
-            {
-            dir('terraform')
-            {
-                sh 'terraform plan -out=tfplan'
-            }
-            
+
+    agent any
+
+    stages {
+        stage('Terraform Init') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform init'
+                }
             }
         }
 
-        stage('Terraform Apply')
-        {
-            step
-            {
-            dir('terraform')
-            {
-                sh 'terraform apply -auto-approve tfplan'
-            }
-            
+        stage('Terraform Plan') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform plan -out=tfplan'
+                }
             }
         }
 
-        
+        stage('Terraform Apply') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform apply -auto-approve tfplan'
+                }
+            }
+        }
     }
 }
