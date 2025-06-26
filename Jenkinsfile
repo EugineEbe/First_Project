@@ -68,7 +68,7 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                dir('terraform') {
+                dir('Terraform') {
                     git "https://github.com/EugineEbe/First_Project.git"
                     sh 'terraform init'
                 }
@@ -77,7 +77,7 @@ pipeline {
 
         stage('Terraform Plan') {
             steps {
-                dir('terraform') {
+                dir('Terraform') {
                     sh 'terraform plan -out=tfplan'
                 }
             }
@@ -85,7 +85,7 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                dir('terraform') {
+                dir('Terraform') {
                     sh 'terraform apply -auto-approve tfplan'
                 }
             }
