@@ -69,6 +69,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 dir('terraform') {
+                    git "https://github.com/EugineEbe/First_Project.git"
                     sh 'terraform init'
                 }
             }
