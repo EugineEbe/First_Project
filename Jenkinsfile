@@ -12,11 +12,12 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                 script
+                 script{
                         dir("terraform")
                         {
                             git "https://github.com/EugineEbe/First_Project.git"
                         }
+                    }
                 }
             }      
 
