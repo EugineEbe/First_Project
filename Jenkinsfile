@@ -11,14 +11,17 @@ pipeline {
    agent  any
     stages {
         stage('checkout') {
+            // steps {
+            //      script{
+            //             dir("terraform")
+            //             {
+            //                 git "https://github.com/EugineEbe/First_Project.git"
+            //             }
+            //         }
+            //     }
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/EugineEbe/First_Project.git"
-                        }
-                    }
-                }
+        echo "Source code already checked out by Jenkins"
+        }
             }      
 
         stage('Plan') {
