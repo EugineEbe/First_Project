@@ -74,7 +74,7 @@ pipeline {
                     
                     sh 'pwd'; 
                     echo "cloned successfully"
-                    sh 'cd terraform ; terraform init'
+                    sh 'terraform init'
                 }
             }
         }
