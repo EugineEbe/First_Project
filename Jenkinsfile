@@ -68,9 +68,9 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                dir('terraform') {
+                dir('Terraform') {
                     echo "connected ............"
-                    git "https://github.com/EugineEbe/First_Project.git"
+                    // git "https://github.com/EugineEbe/First_Project.git"
                     echo "cloned successfully"
                     sh 'pwd'; 
                     
