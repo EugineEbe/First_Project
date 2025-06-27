@@ -71,9 +71,9 @@ pipeline {
                 dir('terraform') {
                     echo "connected ............"
                     git "https://github.com/EugineEbe/First_Project.git"
-                    
-                    sh 'pwd'; 
                     echo "cloned successfully"
+                    sh 'pwd'; 
+                    
                     sh 'terraform init'
                 }
             }
