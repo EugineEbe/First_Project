@@ -71,6 +71,7 @@ pipeline {
                 dir('Terraform') {
                     echo "connected ............"
                     // git "https://github.com/EugineEbe/First_Project.git"
+                    sh 'cd terraform'
                     sh 'terraform init'
                 }
             }
