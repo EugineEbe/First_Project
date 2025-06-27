@@ -71,7 +71,6 @@ pipeline {
                 dir('Terraform') {
                     echo "connected ............"
                     // git "https://github.com/EugineEbe/First_Project.git"
-                    echo "cloned successfully"
                     sh 'pwd'; 
                     
                     sh 'terraform init'
@@ -81,7 +80,7 @@ pipeline {
 
         stage('Terraform Plan') {
             steps {
-                dir('terraform') {
+                dir('Terraform') {
                     sh 'terraform plan -out=tfplan'
                 }
             }
@@ -89,7 +88,7 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                dir('terraform') {
+                dir('Terraform') {
                     sh 'terraform apply -auto-approve tfplan'
                 }
             }
