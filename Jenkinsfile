@@ -68,26 +68,26 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                dir('Terraform') {
+                dir('terraform') {
                     echo "connected ............"
                     // git "https://github.com/EugineEbe/First_Project.git"
-                    sh 'pwd;cd Terraform/ ; terraform init'
+                    sh 'pwd;cd terraform/ ; terraform init'
                 }
             }
         }
 
         stage('Terraform Plan') {
             steps {
-                dir('Terraform') {
-                    sh 'Terraform plan -out=tfplan'
+                dir('terraform') {
+                    sh 'terraform plan -out=tfplan'
                 }
             }
         }
 
         stage('Terraform Apply') {
             steps {
-                dir('Terraform') {
-                    sh 'Terraform apply -auto-approve tfplan'
+                dir('terraform') {
+                    sh 'terraform apply -auto-approve tfplan'
                 }
             }
         }
