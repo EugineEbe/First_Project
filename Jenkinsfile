@@ -70,8 +70,8 @@ pipeline {
             steps {
                 dir('terraform') {
                     echo "connected ............"
-                    git "https://github.com/EugineEbe/First_Project.git"
-                    sh 'pwd;cd terraform/ ; terraform init'
+                    git "https://github.com/EugineEbe/First_Project/Terraform/"
+                    sh 'pwd; cd terraform/ ; terraform init'
                 }
             }
         }
